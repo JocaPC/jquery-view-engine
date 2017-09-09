@@ -93,6 +93,14 @@ As a result, 'model' object will be loaded into the HTML fragment, like here:
     </select>
 </div>
 ```
+As you can see, there are not custom {{placeholders}} or directives like in the other engines. Use pure HTML and just bind the standard JSON object into the view. 
+
+This is a simple example, but **JQVEN** can do much more such as populating list of elements from JavaScript array object, populating any HTML input field in the form, etc. You can find examples on the following pages:
+
+ - Create [list](examples/list.html) of company records using a simple UL list.
+ - Populate [table](examples/table.html) of companies and apply JQuery DataTables plugin.
+ - Create [panels](examples/panels.html) that show list of companies and related infomation about manager and employees.
+ - Populate complex [forms](examples/edit.html) with any HTML input field.
 
 If you want to keep it simple, **JQVEN** is a view engine for you.
 **JQVEN** plugin works with the large number of HTML elements from plan SPAN, P, DIV, to various INPUT (text, checkbox, radio, HTML5 types), SELECT, TEXTAREA, etc.
