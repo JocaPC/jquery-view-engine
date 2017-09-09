@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Load Form with JSON data</title>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	
+	<script src="../src/jquery.js" type="text/javascript"></script>
+	<script src="../src/jquery.view-engine.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+
+		$(document).ready(function () {
+
+			// Populate initial content of Region list
+			$("#Region").view(["North","West","South","East"]);
+			$("#Industries").view(["Finance","Insurance","IT","Education"]);
+
+			var model = {
+				ID:17,
+				Name:"Emkay Entertainments",
+				Address:"Nobel House, Regent Center",
+				Town:"Lothian",
+				Region:"East",
+				Country: ["SRB", "FRA"],
+				IsFeatured:true,
+				Contact:"Phone",
+				Logo: "images/logo18.jpg",
+				Color: "#ff0000",
+				Email: "joe@emkay.com",
+				DateCreated: "2017-10-17",
+				NumberOfEmployees: 11,
+				Budget: 450
+			};
+		
+			$("#companyForm").view(model);
+
+		});
+			
+    </script>
+
+</head>
+
+<body>
+	<div class="container">
+		<form id="companyForm" action="details.html" method="get">
+			<h1>Edit Company Details</h1>
+			<div class="row">
+				<div class="col-sm-6">
+            <input type="hidden" name="ID" />
+			<div class="form-group">
+				<label for="Name">Name</label>
+				<input name="Name" type="text" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label for="Address">Address</label>
+				<textarea name="Address" rows="3" cols="10" class="form-control"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="Town">Town</label>
+				<select name="Town" class="form-control">
+					<option value="London">London City</option>
+					<option value="Liverpool">Liverpool City</option>
+					<option value="Lothian">Lothian City</option>
+					<option value="Newcastle">Newcastle City</option>
+					<option value="Buckinghamshire">Buckinghamshire City</option>
+					<option value="Essex">Essex City</option>  
+				</select>
+			</div>
+
+			<div class="form-group">
+					<label for="Region">Region</label>
+					<select name="Region" id="Region" class="form-control">
+					</select>
+			</div>
+
+			<div class="form-group">
+				<label for="Country">Country</label>
+				<select name="Country" multiple="multiple" class="form-control">
+					<option value="UK">United Kingdom</option>
+					<option value="SRB">Serbia</option>
+					<option value="USA">United States of America</option>
+					<option value="FRA">France</option>  
+				</select>
+			</div>
+			
+			<div class="form-group">
+					<label class="checkbox-inline">
+					<input name="IsFeatured" id="IsFeatured" type="checkbox"/>
+					Is Featured
+					</label>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+
+			<div class="form-group">
+				<label>Contact by</label>
+				<div class="form-control">
+				<label class="radio-inline">
+					<input name="Contact" type="radio" value="Email"/>
+					Email
+				</label>
+				<label class="radio-inline">
+					<input name="Contact" type="radio" value="Phone"/>
+					Phone
+				</label>
+				<label class="radio-inline">
+					<input name="Contact" type="radio" value="Post"/>
+					Post
+				</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="Email">Contact email</label>
+				<input name="Email" type="email" class="form-control"/>
+			</div>
+
+			<div class="form-group">
+				<label for="Color">Color</label>
+				<input name="Color" type="color" class="form-control"/>
+			</div>
+	
+			<div class="form-group">
+				<label for="DateCreated">Created:</label>
+				<input name="DateCreated" type="date" class="form-control"/>
+			</div>
+
+			<div class="form-group">
+				<label for="NumberOfEmployees">Number of employees:</label>
+				<input name="NumberOfEmployees" type="number" class="form-control"/>
+			</div>
+
+			<div class="form-group">
+				<label for="Budget">Budget:</label>
+				<input name="Budget" type="range" min="100" max="3000" class="form-control"/>
+			</div>
+
+			<div class="form-group">
+				<label for="Industry">Industry:</label>
+				<input name="Industry" list="Industries">
+				<datalist id="Industries">
+				  <option>
+				</datalist>
+			</div>
+			
+			
+		</div>
+			</div>
+			<input type="submit" value="Details" class="btn btn-default" />
+		</form>
+	</div>
+</body>
+
+</html>

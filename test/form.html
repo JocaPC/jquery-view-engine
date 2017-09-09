@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Form Test</title>
+  <link rel="stylesheet" href="qunit/qunit-2.4.0.css">
+  <script src="qunit/qunit-2.4.0.js"></script>
+  <script src="../src/jquery.js" type="text/javascript"></script>
+  <script src="../src/jquery.view-engine.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	  
+  	<form id="fh" method="get">
+		<input type="hidden" name="i1" />
+		<input type="hidden" id="i2" name="hiddenid1" />
+		<input type="hidden" class="bind-i3" name="hiddenid2" />
+	</form>
+	<form id="ft" method="get">
+		<input type="text" name="i1"/>
+		<input type="text" id="i2" name="Name"/>
+		<input type="text" class="bind-i3"/>
+	</form>
+	<form id="fn" method="get">
+		<input type="number" name="i1"/>
+		<input type="number" id="i2" name="Name"/>
+		<input type="number" class="bind-i3"/>
+	</form>
+	<form id="fr" method="get">
+		<input type="range" min="10" max="300" name="i1"/>
+		<input type="range" min="10" max="300" id="i2"/>
+		<input type="range" min="10" max="300" class="bind-i3"/>
+	</form>
+	<form id="fe" method="get">
+		<input type="email" name="i1"/>
+		<input type="email" id="i2" name="Name"/>
+		<input type="email" class="bind-i3"/>
+	</form>
+	<form id="fu" method="get">
+		<input type="url" name="i1"/>
+		<input type="url" id="i2" name="Name"/>
+		<input type="url" class="bind-i3"/>
+	</form>
+	
+	<form id="fs" method="get">
+		<select name="i1">
+			<option value="101">Belgrade (101)</option>
+			<option value="102">Novi Sad (102)</option> 
+			<option value="103">Pancevo (103)</option> 
+		</select>
+		<select id="i2">
+			<option value="101">Belgrade (101)</option>
+			<option value="102">Novi Sad (102)</option> 
+			<option value="103">Pancevo (103)</option> 
+		</select>
+		<select class="bind-i3">
+			<option value="101">Belgrade (101)</option>
+			<option value="102">Novi Sad (102)</option> 
+			<option value="103">Pancevo (103)</option> 
+		</select>
+	</form>
+
+	<form id="frandom" method="get">
+	
+		
+		<input type="color" name="c1"/>
+		<input type="color" id="c2" name="Name"/>
+		<input type="color" class="bind-c3"/>
+		
+		<input type="date" name="d1"/>
+		<input type="date" id="d2" name="Name"/>
+		<input type="date" class="bind-d3"/>
+
+		<textarea name="t1" rows="3" cols="10"></textarea>
+		<textarea id="t2" rows="3" cols="10"></textarea>
+		<textarea class="bind-t3" rows="3" cols="10"></textarea>
+
+		<input name="b1" type="checkbox"/>
+		<input name="IsFeatured2" id="b2" type="checkbox"/>
+		<input name="IsFeatured3" class="bind-b3" type="checkbox"/>
+		<input name="b4" type="checkbox"/>
+		<input name="IsFeatured5" id="b5" type="checkbox"/>
+		<input name="IsFeatured6" class="bind-b6" type="checkbox"/>
+
+		<input name="r1" type="radio" value="101"/>
+		<input name="r1" type="radio" value="102"/>
+		<input name="r1" type="radio" value="103"/>
+
+		<input name="Contact2" type="radio" value="101" id="r2"/>
+		<input name="Contact2" type="radio" value="102" id="r2"/>
+		<input name="Contact2" type="radio" value="103" id="r2"/>
+
+		<input name="Contact3" type="radio" value="101" class="bind-r3"/>
+		<input name="Contact3" type="radio" value="102" class="bind-r3"/>
+		<input name="Contact3" type="radio" value="103" class="bind-r3"/>
+	</form>
+
+	<script>
+		// Arrange
+		var model = { i1:101, i2: 102, i3: 103	};
+		var r = { c1:"#ff0000", c2: "#00ff00", c3: "#0000ff", 
+					d1:"2017-10-01", d2: "2017-10-02", d3: "2017-10-03",
+					t1:"2017-10-01", t2: "2017-10-02", t3: "2017-10-03",
+					b1:true, b2: false, b3: true,
+					b4:false, b5: true, b6: false,
+					r1:"101", r2: "102", r3: "103"
+		};
+
+		QUnit.test( "INPUT", function( assert ) {
+			var ids = ["#fh", "#ft","#fn", "#fr", "#fe", "#fu", "#fs"];
+			for (var i in ids) {
+				// Arrange
+				var id = ids[i];
+
+				// Act
+				$(id).view(model);
+
+				// Assert
+				var $f = $(id);
+				assert.equal( $('[name="i1"]', $f).val(), model.i1, "Populated text by name in " + id);
+				assert.equal( $("#i2", $f).val(), model.i2, "Populated text by id in " + id );
+				assert.equal( $('.bind-i3', $f).val(), model.i3, "Populated text by class name in " + id);
+			}
+		  });
+
+		QUnit.test( "TEXT", function( assert ) {
+			// Arrange
+			var id = "#frandom";
+			// Act
+			$(id).view(r);
+
+			// Assert
+			var $f = $(id);
+			assert.equal( $('[name="t1"]', $f).val(), r.t1, "Populated text by name in " + id);
+			assert.equal( $("#t2", $f).val(), r.t2, "Populated text by id in " + id );
+			assert.equal( $('.bind-t3', $f).val(), r.t3, "Populated text by class name in " + id);
+		});
+
+		QUnit.test( "CHECKBOX", function( assert ) {
+			// Arrange
+			var id = "#frandom";
+			// Act
+			$(id).view(r);
+
+			// Assert
+			var $f = $(id);
+			assert.equal( $('[name="b1"]', $f).prop("checked"), r.b1, "Populated CB by name in " + id);
+			assert.equal( $("#b2", $f).prop("checked"), r.b2, "Populated CB by id in " + id );
+			assert.equal( $('.bind-b3', $f).prop("checked"), r.b3, "Populated CB by class name in " + id);
+			assert.equal( $('[name="b4"]', $f).prop("checked"), r.b4, "Populated CB by name in " + id);
+			assert.equal( $("#b5", $f).prop("checked"), r.b5, "Populated CB by id in " + id );
+			assert.equal( $('.bind-b6', $f).prop("checked"), r.b6, "Populated CB by class name in " + id);
+	
+		});
+
+		QUnit.test( "RADIO", function( assert ) {
+			// Arrange
+			var id = "#frandom";
+			// Act
+			$(id).view(r);
+
+			// Assert
+			var $f = $(id);
+			assert.equal( $('[name="r1"]:checked', $f).val(), r.r1, "Populated rb by name in " + id);
+			assert.equal( $("#r2:checked", $f).val(), r.r2, "Populated rb by id in " + id );
+			assert.equal( $('.bind-r3:checked', $f).val(), r.r3, "Populated rb by class name in " + id);
+		});
+
+
+		QUnit.test( "COLORS", function( assert ) {
+			// Arrange
+			var id = "#frandom";
+			// Act
+			$(id).view(r);
+
+			// Assert
+			var $f = $(id);
+			assert.equal( $('[name="c1"]', $f).val(), r.c1, "Populated color by name in " + id);
+			assert.equal( $("#c2", $f).val(), r.c2, "Populated color by id in " + id );
+			assert.equal( $('.bind-c3', $f).val(), r.c3, "Populated color by class name in " + id);
+		});
+
+		QUnit.test( "DATE", function( assert ) {
+			// Arrange
+			var id = "#frandom";
+			// Act
+			$(id).view(r);
+
+			// Assert
+			var $f = $(id);
+			assert.equal( $('[name="d1"]', $f).val(), r.d1, "Populated date by name in " + id);
+			assert.equal( $("#d2", $f).val(), r.d2, "Populated date by id in " + id );
+			assert.equal( $('.bind-d3', $f).val(), r.d3, "Populated date by class name in " + id);
+		});
+	</script>
+		
+</body>
+
+</html>

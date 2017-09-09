@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Basic Test</title>
+  <link rel="stylesheet" href="qunit/qunit-2.4.0.css">
+  <script src="qunit/qunit-2.4.0.js"></script>
+  <script src="../src/jquery.js" type="text/javascript"></script>
+  <script src="../src/jquery.view-engine.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <div id="scalar">
+        <span id="i1"></span>
+        <p name="i2"></p>
+        <div class="bind-s1"></div>
+  </div>
+  <div id="ul">
+      
+    A1<ul>
+          <li class="bind-a1"></li>
+      </ul>
+    A2<ul>
+          <li class="bind-a2"></li>
+      </ul>
+    A4<ul id="a4">
+        </ul>
+    A5<ul name="a5">
+        </ul>
+</div>
+<div id="select">
+    A0
+    <select id="a0">
+    </select>
+    A1<select id="a1">
+    </select>
+    A2<select>
+      <option class="bind-a2"/>
+    </select>
+    A3<select>
+        <option class="bind-a3"/>
+    </select>
+    <select name="a4">
+    </select>
+    <select name="a5">
+    </select>
+</div>
+  <script>
+      // Arrange
+      var model = { i1:101, i2: 102, 
+                    s1:"Tesla", 
+                    a0: [{value:"SRB", text:"Serbia"}, { value:"FRA", text:"France", selected: true}],
+                    a1: ["Serbia", "France"],
+                    a2: [1,2,3,4],
+                    a3: [{value:"SRB", text:"Serbia"}, { value:"FRA", text:"France", selected: true},{value:"IT", text:"Italy"},{value:"UK", text:"United Kingdom"}],
+                    a4: ["France", "Serbia", "Spain"],
+                    a5: [1,2,3,4,5,6,7,8,9],
+                    o1: { k1: 1, k2: "Belgrade"}
+                };
+    $("#select").view(model);
+        
+    QUnit.test( "Scalar values", function( assert ) {
+        // Act
+        $("#scalar").view(model);
+        // Assert
+        assert.equal( $("#i1").text(), "101", "Populated element by id" );
+        assert.equal( $('[name="i2"]').html(), "102", "Populated element by name" );
+        assert.equal( $('.bind-s1').html(), "Tesla", "Populated element by class name" );
+    });
+    QUnit.test( "UL values", function( assert ) {
+        // Act
+        $("#ul").view(model);
+        
+        // Assert
+        assert.equal( $("#ul .bind-a1").length, model.a1.length, "Populated list by class .a1" );
+        for(var i = 0; i< model.a1.length; i++){
+            assert.equal( $("#ul .bind-a1").get(i).innerText, model.a1[i], "Populated list element[" + i + "] by class .a1" );
+        }
+
+        assert.equal( $("#ul .bind-a2").length, model.a2.length, "Populated list by class name .a2" );
+        for(var i = 0; i< model.a2.length; i++){
+            assert.equal( $("#ul .bind-a2").get(i).innerText, model.a2[i], "Populated list element[" + i + "] by class .a2" );
+        }
+
+        assert.equal( $("#ul #a4").length, model.a4.length, "Populated list by id #a4" );
+        for(var i = 0; i< model.a4.length; i++){
+            assert.equal( $("#ul #a4").get(i).innerText, model.a4[i], "Populated list element[" + i + "] by id #a4" );
+        }
+
+        assert.equal( $('#ul [name="a5"]').length, model.a5.length, "Populated list by name a5" );
+        for(var i = 0; i< model.a5.length; i++){
+            assert.equal( $('#ul [name="a5"]').get(i).innerText, model.a5[i], "Populated list element[" + i + "] by name a5" );
+        }
+    });
+    QUnit.test( "SELECT values", function( assert ) {
+        // Act
+        $("#select").view(model);
+        
+        // Assert
+        var $select = $("#select");
+
+        assert.equal( $("#a0 option", $select).length, model.a0.length, "Populated list by id #a0" );
+        for(var i = 0; i< model.a0.length; i++){
+            var item = $("#a0 option", $select).get(i);
+            assert.equal( item.value, model.a0[i].value, "Populated list element[" + i + "] value by id #a0" );
+            assert.equal( item.text, model.a0[i].text, "Populated list element[" + i + "] text by id #a0" );
+            if(model.a0[i].selected){
+                assert.ok( item.selected, "Selected list element[" + i + "] id #a0" );
+            }
+        }
+
+        assert.equal( $("#a1 option", $select).length, model.a1.length, "Populated list by id #a1" );
+        for(var i = 0; i< model.a1.length; i++){
+            assert.equal( $("#a1 option", $select).get(i).innerText, model.a1[i], "Populated list element[" + i + "] by id #a1" );
+        }
+
+        assert.equal( $(".bind-a2", $select).length, model.a2.length, "Populated list by class .bind-a2" );
+        for(var i = 0; i< model.a2.length; i++){
+            assert.equal( $(".bind-a2", $select).get(i).innerText, model.a2[i], "Populated list element[" + i + "] by class .bind-a2" );
+        }
+
+        assert.equal( $(".bind-a3", $select).length, model.a3.length, "Populated list by class .bind-a3" );
+        for(var i = 0; i< model.a3.length; i++){
+            var item = $(".bind-a3", $select).get(i);
+            assert.equal( item.value, model.a3[i].value, "Populated list element[" + i + "] value by class .bind-a3" );
+            assert.equal( item.text, model.a3[i].text, "Populated list element[" + i + "] text by class .bind-a3" );
+            if(model.a3[i].selected){
+                assert.ok( item.selected, "Selected list element[" + i + "] id class .bind-a3" );
+            }
+        }
+
+        assert.equal( $('[name="a4"] option', $select).length, model.a4.length, "Populated list by name a4" );
+        for(var i = 0; i< model.a4.length; i++){
+            assert.equal( $('[name="a4"] option', $select).get(i).innerText, model.a4[i], "Populated list element[" + i + "] by name a4" );
+        }
+        
+        assert.equal( $('[name="a5"] option', $select).length, model.a5.length, "Populated list by name a5" );
+        for(var i = 0; i< model.a5.length; i++){
+            assert.equal( $('[name="a5"] option', $select).get(i).innerText, model.a5[i], "Populated list element[" + i + "] by name a5" );
+        }
+    });
+  </script>
+</body>
+</html>
