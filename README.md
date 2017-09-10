@@ -13,7 +13,7 @@ First, you need a plain HTML that represents a template:
     </ul>
 </div>
 ```
-Then, you need a JavaScript object that will be used to populate template:
+Then, you need a JavaScript object that will be used to populate the template:
 ```javascript
 {   Title: "JQVN"
     Desc: "The simplest view engine",
@@ -38,7 +38,7 @@ And the result would be:
 ```html
  $("div#template").view(data);
 ```
-**JQVN** will handle various types of HTML elements, populate inner text of P, DIV, SPAN, and other simple elements, set the value INPUT, SELECT, and other form elements, replicate HTML elements that are bound to arrays, etc. 
+**JQVN** will handle various types of HTML elements, populate inner text of `P`, `DIV`, `SPAN`, and other simple elements, set the value `INPUT`, `SELECT`, and other form elements, replicate HTML elements that are bound to the arrays, etc. 
 
 ## Why yet another view engine?
 
@@ -68,9 +68,23 @@ Once you have these two, you just need to convert the HTML template into the vie
 
 And that's it - your model object would be placed into the template. No overcomplicating - simple solution for a simple task. In the following sections you can see more details on how to use it.
 
+### Model object
+
+First we need a model object - data that we want to display to the user. Example of object that can populate template shown above is shown in the following listing: 
+
+```javascript
+var model = {
+    "Name":"ACME Co",
+    "Address":"Spanish Street 3, Belgrade",
+    "Contact":"Phone"
+}
+```
+This can be local object built in JavaScript code, or JSON object fetched from a web server via AJAX call.
+This object has three properties (`Name`, `Address`, and `Contact`) that will be displayed in the we page.
+
 ### HTML template
 
-Template is a **plain HTML code**. Only requirement is that elements that should be populated must match the fields in model object by **id**, **name**, or **class**. An example of HTML template is shown below: 
+Template is a **plain HTML code** where **JQVN** will place fields from the model object. Only requirement is that elements that should be populated must match the fields in model object by **id**, **name**, or **class**. An example of HTML template is shown below: 
 
 ```html
 <div id="content">
@@ -88,21 +102,8 @@ Template is a **plain HTML code**. Only requirement is that elements that should
 </div>
 ```
 
-The **h1** tag in the template has id *Name* and it would be used to display a name. input and select tags will be used to show Address and Contact method.
-
-### Model object
-
-Once HTML template is defined JSON object that will be used to populate template must be defined. Example of object that can populate template shown above is shown in the following listing: 
-```javascript
-var model = {
-    "Name":"ACME Co",
-    "Address":"Spanish Street 3, Belgrade",
-    "Contact":"Phone"
-}
-```
-This can be local object built in JavaScript code, or JSON object fetched from a web server via AJAX call.
-
-Object has three properties (Name, Address, and Contact) that will be injected into the template.
+The `h1` tag in the template has id `Name` and it would be used to display a name. `input` and `select` tags will be used to show `Address` and `Contact` method.
+Element must have `id` or `name` attributes that matches. If you want to use class you should place a class with the prefix `bind-` (for example, `bind-Address` or `bind-Contact`). **JQVN** will match elements in the template with the properties in the modle objectby names and set the values of the HTML elements using the data from model object.
 
 ## Binding JSON object to the template
 
@@ -131,12 +132,15 @@ As a result, 'model' object will be loaded into the HTML fragment, like here:
 ```
 As you can see, there are not custom {{placeholders}} or directives like in the other engines. Use pure HTML and just bind the standard JSON object into the view. 
 
-This is a simple example, but **JQVN** can do much more such as populating list of elements from JavaScript array object, populating any HTML input field in the form, etc. You can find examples on the following pages:
-
- - Create [list](examples/list.html) of company records using a simple UL list.
+This is a simple example, but **JQVN** can do much more such as:
+ - populating list of elements from JavaScript array object - if **JQVN** finds an array of elements in the model it will replicate target HTML element in the template, which is usefull for the lists, tables, etc.
+ - populating any HTML input field in the form.
+ 
+ You can find examples on the following pages:
+ - Create [list](examples/list.html) of company records using a simple `UL` list.
  - Populate [table](examples/table.html) of companies and apply JQuery DataTables plugin.
  - Create [panels](examples/panels.html) that show list of companies and related infomation about manager and employees.
  - Populate complex [forms](examples/edit.html) with any HTML input field.
 
 If you want to keep it simple, **JQVN** is a view engine for you.
-**JQVN** plugin works with the large number of HTML elements from plan SPAN, P, DIV, to various INPUT (text, checkbox, radio, HTML5 types), SELECT, TEXTAREA, etc.
+**JQVN** plugin works with the large number of HTML elements from plain `SPAN`, `P`, `DIV`, to various `INPUT` (text, checkbox, radio, HTML5 types), `SELECT`, `TEXTAREA`, etc.
