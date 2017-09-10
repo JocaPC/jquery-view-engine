@@ -38,6 +38,7 @@ And the result would be:
 ```html
  $("div#template").view(data);
 ```
+**JQVN** will handle various types of HTML elements, populate inner text of P, DIV, SPAN, and other simple elements, set the value INPUT, SELECT, and other form elements, replicate HTML elements that are bound to arrays, etc. 
 
 ## Why yet another view engine?
 
