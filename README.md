@@ -4,7 +4,7 @@
 
 | Template      | Model         | Result |
 | ------------- |:-------------:| ------:|
-|```html
+|
 <div id="template">
     <h1 id="Name"></h1>
     <label>Description:</label>
@@ -13,15 +13,12 @@
         <li class="bind-Tags"></li>
     </ul>
 </div>
-```
 |
-```javascript
 {   Title: "JQVN"
     Desc: "The simplest view engine",
     Tags: ["View engine", "JavaScript", "SPA"]
 }
-```
-|```html
+|
 <div id="template">
     <h1 id="Name">JQVN</h1>
     <label>Description:</label>
@@ -32,7 +29,6 @@
         <li class="bind-Tags">SPA</li>
     </ul>
 </div>
-```
 |
 
 **JQVN** is a view engine that enables you to do this.
