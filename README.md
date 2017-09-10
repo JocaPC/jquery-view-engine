@@ -2,9 +2,8 @@
 
 **JQVN** is probably the simplest possible JavaScript View Engine. There are no frameworks, or custom templating syntax. Just write the standard/plan HTML code that you want to show in the browser, take your JavaScript object that contains data and bind them.
 
-| Template      | Model         | Result |
-| ------------- |:-------------:| ------:|
-|
+First, you need a plain HTML that represents a template:
+```html
 <div id="template">
     <h1 id="Name"></h1>
     <label>Description:</label>
@@ -13,12 +12,16 @@
         <li class="bind-Tags"></li>
     </ul>
 </div>
-|
+```
+Then, you need a JavaScript object that will be used to populate template:
+```javascript
 {   Title: "JQVN"
     Desc: "The simplest view engine",
     Tags: ["View engine", "JavaScript", "SPA"]
 }
-|
+```
+And the result would be:
+```html
 <div id="template">
     <h1 id="Name">JQVN</h1>
     <label>Description:</label>
@@ -29,9 +32,12 @@
         <li class="bind-Tags">SPA</li>
     </ul>
 </div>
-|
+```
 
-**JQVN** is a view engine that enables you to do this.
+**JQVN** is a view engine that enables you to do this with a single line of code:
+```html
+ $("div#template").view(data);
+```
 
 ## Why yet another view engine?
 
