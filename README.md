@@ -52,7 +52,7 @@ With respect to Mustache, Vue.js, and other alternative templating engines - I r
 
 The question is - why we need a custom templating syntax? I believe that HTML is in most of the cases sufficient to describe template, so I wanted to use standard HTML as a view template. This is idea behind **JQVN** plugin - let's use plain HTML to define view template and just bind the object into the view to show the data.
 
-The only prerequisite is JQuery library that is used to bind object into HTML template.
+The only prerequisite is [JQuery library](https://jquery.com/) that is used to bind object into HTML template.
 
 ## Usage
 
@@ -138,9 +138,17 @@ This is a simple example, but **JQVN** can do much more such as:
  
  You can find examples on the following pages:
  - Create [list](examples/list.html) of company records using a simple `UL` list.
- - Populate [table](examples/table.html) of companies and apply JQuery DataTables plugin.
+ - Populate [table](examples/table.html) of companies and apply [JQuery DataTables](https://datatables.net/) plugin.
  - Create [panels](examples/panels.html) that show list of companies and related infomation about manager and employees.
  - Populate complex [forms](examples/edit.html) with any HTML input field.
 
 If you want to keep it simple, **JQVN** is a view engine for you.
 **JQVN** plugin works with the large number of HTML elements from plain `SPAN`, `P`, `DIV`, to various `INPUT` (text, checkbox, radio, HTML5 types), `SELECT`, `TEXTAREA`, etc.
+
+## How to obtain this library?
+
+**JQVN** is a single JavaScript file that you can download from the GitHub project:
+ - Full [source code](src/jquery.view-engine.js).
+ - [Minified 1.2KB](src/jquery.view-engine.min.js.gz) version.
+
+ Once you take one of these files just include it into your HTML page. You would also need to include [JQuery library](https://jquery.com/) in your page.
