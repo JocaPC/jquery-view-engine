@@ -1,8 +1,41 @@
-# JQVEN - JQuery View ENgine
+# JQVN - JQuery View eNgine
 
-**JQVEN** is probably the simplest possible JavaScript View Engine. There are no frameworks, or custom templating syntax. Just write the standard/plan HTML code that you want to show in the browser, take your JavaScript object that contains data and bind them.
+**JQVN** is probably the simplest possible JavaScript View Engine. There are no frameworks, or custom templating syntax. Just write the standard/plan HTML code that you want to show in the browser, take your JavaScript object that contains data and bind them.
 
-**JQVEN** is a view engine that enables you to do this.
+| Template      | Model         | Result |
+| ------------- |:-------------:| ------:|
+|```html
+<div id="template">
+    <h1 id="Name"></h1>
+    <label>Description:</label>
+    <textarea name="Desc"></textarea>
+    <ul>
+        <li class="bind-Tags"></li>
+    </ul>
+</div>
+```
+|
+```javascript
+{   Title: "JQVN"
+    Desc: "The simplest view engine",
+    Tags: ["View engine", "JavaScript", "SPA"]
+}
+```
+|```html
+<div id="template">
+    <h1 id="Name">JQVN</h1>
+    <label>Description:</label>
+    <textarea name="Desc">The simplest view engine</textarea>
+    <ul>
+        <li class="bind-Tags">View engine</li>
+        <li class="bind-Tags">JavaScript</li>
+        <li class="bind-Tags">SPA</li>
+    </ul>
+</div>
+```
+|
+
+**JQVN** is a view engine that enables you to do this.
 
 ## Why yet another view engine?
 
@@ -14,13 +47,13 @@ I looked at ReactJS and I liked it too, but in some cases JSX syntax and mixing 
 
 With respect to Mustache, Vue.js, and other alternative templating engines - I really need something simpler.
 
-The question is - why we need a custom templating syntax? I believe that HTML is in most of the cases sufficient to describe template, so I wanted to use standard HTML as a view template. This is idea behind **JQVEN** plugin - let's use plain HTML to define view template and just bind the object into the view to show the data.
+The question is - why we need a custom templating syntax? I believe that HTML is in most of the cases sufficient to describe template, so I wanted to use standard HTML as a view template. This is idea behind **JQVN** plugin - let's use plain HTML to define view template and just bind the object into the view to show the data.
 
 The only prerequisite is JQuery library that is used to bind object into HTML template.
 
 ## Usage
 
-To use **JQVEN** you would need:
+To use **JQVN** you would need:
  - HTML code that will be used as template. You can use standard HTML, HTML5 elements, with your own CSS code, Twitter Bootstrap or similar.
  - JSON object that will be used as a model that populates the HTML template.
 
@@ -95,12 +128,12 @@ As a result, 'model' object will be loaded into the HTML fragment, like here:
 ```
 As you can see, there are not custom {{placeholders}} or directives like in the other engines. Use pure HTML and just bind the standard JSON object into the view. 
 
-This is a simple example, but **JQVEN** can do much more such as populating list of elements from JavaScript array object, populating any HTML input field in the form, etc. You can find examples on the following pages:
+This is a simple example, but **JQVN** can do much more such as populating list of elements from JavaScript array object, populating any HTML input field in the form, etc. You can find examples on the following pages:
 
  - Create [list](examples/list.html) of company records using a simple UL list.
  - Populate [table](examples/table.html) of companies and apply JQuery DataTables plugin.
  - Create [panels](examples/panels.html) that show list of companies and related infomation about manager and employees.
  - Populate complex [forms](examples/edit.html) with any HTML input field.
 
-If you want to keep it simple, **JQVEN** is a view engine for you.
-**JQVEN** plugin works with the large number of HTML elements from plan SPAN, P, DIV, to various INPUT (text, checkbox, radio, HTML5 types), SELECT, TEXTAREA, etc.
+If you want to keep it simple, **JQVN** is a view engine for you.
+**JQVN** plugin works with the large number of HTML elements from plan SPAN, P, DIV, to various INPUT (text, checkbox, radio, HTML5 types), SELECT, TEXTAREA, etc.
