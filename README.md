@@ -1,6 +1,12 @@
 # JQVN - JQuery View eNgine
 
-**JQVN** is probably the simplest possible JavaScript View Engine. There are no frameworks, or custom templating syntax. Just write the standard/plan HTML code that you want to show in the browser, take your JavaScript object that contains data and bind them.
+**JQVN** is probably the simplest possible JavaScript View Engine.
+-	**Easy to learn** – There are not custom syntax, placeholders, rules, or constraints. If you know HTML, then you probably already know how to use this view engine.
+-	**Smart** - has built-in logic that automatically recognizes template elements by type and figure out how to populate values into the elements. 
+-   **Cross-browser** - it is based on JQuery library, so it will work on any browser that is supported by JQuery.
+-	**Small** - 1.2KB minified.
+
+There are no frameworks, or custom templating syntax. Just write the standard/plan HTML code that you want to show in the browser, take your JavaScript object that contains data and bind them.
 
 First, you need a plain HTML that represents a template:
 ```html
@@ -13,14 +19,18 @@ First, you need a plain HTML that represents a template:
     </ul>
 </div>
 ```
-Then, you need a JavaScript object that will be used to populate the template:
+
+You need a **minimal time** to learn how to use **JQVN** template language because it is plain/well-known HTML. There are no placeholders such as {{Name}} or <% Name %> and no restriction in HTML such as forbidden attributes.
+If you have HTML/CSS specialist who create HTML code/prototype - you can directly use their code as a template without rewriting. Also, HTML/CSS designers completely unfamiliar with JavaScript/front-end development can directly change the template.
+
+Once you define a template, you need a JavaScript object that will be used to populate it:
 ```javascript
 {   Title: "JQVN"
     Desc: "The simplest view engine",
     Tags: ["View engine", "JavaScript", "SPA"]
 }
 ```
-And the result would be:
+The result that you would like to see is:
 ```html
 <div id="template">
     <h1 id="Name">JQVN</h1>
@@ -40,6 +50,8 @@ And the result would be:
 ```
 **JQVN** will handle various types of HTML elements, populate inner text of `P`, `DIV`, `SPAN`, and other simple elements, set the value `INPUT`, `SELECT`, and other form elements, replicate HTML elements that are bound to the arrays, etc. 
 
+This is the view engine that will do all binding magic for you and require minimal effort to use it.
+
 ## Why yet another view engine?
 
 A long time ago, long before Angular, React and other templating engines, I needed a quick way to take JSON object via AJAX call and show it in the client side. I created a small library that loads JSON objects into HTML.
@@ -48,9 +60,16 @@ Then AngularJS appeared, and I really liked it. I thought that Angular will be t
 
 I looked at ReactJS and I liked it too, but in some cases JSX syntax and mixing JavaScript and HTML in the same place is not something that I would use to simply bind the object to HTML code.
 
-With respect to Mustache, Vue.js, and other alternative templating engines - I really need something simpler.
+With respect to Mustache, Vue.js, and other alternative templating engines - I really need something simpler. Therefore, I decided to write a simple view engine for a simple use case.
 
-The question is - why we need a custom templating syntax? I believe that HTML is in most of the cases sufficient to describe template, so I wanted to use standard HTML as a view template. This is idea behind **JQVN** plugin - let's use plain HTML to define view template and just bind the object into the view to show the data.
+The question is - why we need a custom templating syntax? I believe that HTML is in most of the cases sufficient to describe template, so I wanted to use standard HTML as a view template. This is idea behind **JQVN** view engine - let's use plain HTML to define view template and just bind the object into the view to show the data.
+
+Also, why would we need custom attributes like for to tell the view engine that it should bind elements from array into the list or table? If the source is an array, view engine should be smart enough to figure out that array should be replicated in list (unfortunately most of the view engines are not so smart). 
+
+Finally, do you hate when you need to populate form elements and then you set `value`, `cheched`, `selected` and other properties in each input field depending on the type. Would it be nice just to say that you want to put value “Hello” into an element with some id, and let view engine figure out how to place it?
+**JQVN** do exactly this magic. Whenever it finds some form input, it will look at the type and automatically determine should it set the `value`, `inner text`, `checked` property, etc.
+
+So, I wrote this view engine because I need a **Magic**.
 
 The only prerequisite is [JQuery library](https://jquery.com/) that is used to bind object into HTML template.
 
@@ -60,17 +79,21 @@ To use **JQVN** you would need:
  - HTML code that will be used as template. You can use standard HTML, HTML5 elements, with your own CSS code, Twitter Bootstrap or similar.
  - JSON object that will be used as a model that populates the HTML template.
 
-Once you have these two, you just need to convert the HTML template into the view and set the model object that needs to be binded:
+Once you have these two, you just need to convert the HTML template into the view and set the model object that needs to be bonded:
 
 ```html
  $("div#myHtmlTemplate").view(model);
 ```
 
-And that's it - your model object would be placed into the template. No overcomplicating - simple solution for a simple task. In the following sections you can see more details on how to use it.
+And that's it - your model object would be placed into the template. No overcomplicating - simple solution for a simple task.
+
+In the following sections, you can see more details on how to use it. 
+
+> Unlike in documentation for other view engines, here you will not find intro, tutorials, how to guides, tips & tricks. This single page would probably be enough to learn everything about this view engine.
 
 ### Model object
 
-First we need a model object - data that we want to display to the user. Example of object that can populate template shown above is shown in the following listing: 
+First, we need a model object - data that we want to display to the user. Example of object that can populate template shown above is shown in the following listing: 
 
 ```javascript
 var model = {
@@ -80,7 +103,7 @@ var model = {
 }
 ```
 This can be local object built in JavaScript code, or JSON object fetched from a web server via AJAX call.
-This object has three properties (`Name`, `Address`, and `Contact`) that will be displayed in the we page.
+This object has three properties (`Name`, `Address`, and `Contact`) that will be displayed in the web page.
 
 ### HTML template
 
@@ -103,7 +126,7 @@ Template is a **plain HTML code** where **JQVN** will place fields from the mode
 ```
 
 The `h1` tag in the template has id `Name` and it would be used to display a name. `input` and `select` tags will be used to show `Address` and `Contact` method.
-Element must have `id` or `name` attributes that matches. If you want to use class you should place a class with the prefix `bind-` (for example, `bind-Address` or `bind-Contact`). **JQVN** will match elements in the template with the properties in the modle objectby names and set the values of the HTML elements using the data from model object.
+Element must have `id` or `name` attributes that matches. If you want to use class you should place a class with the prefix `bind-` (for example, `bind-Address` or `bind-Contact`). **JQVN** will match elements in the template with the properties in the model object by names and set the values of the HTML elements using the data from model object.
 
 ## Binding JSON object to the template
 
@@ -133,7 +156,7 @@ As a result, 'model' object will be loaded into the HTML fragment, like here:
 As you can see, there are not custom {{placeholders}} or directives like in the other engines. Use pure HTML and just bind the standard JSON object into the view. 
 
 This is a simple example, but **JQVN** can do much more such as:
- - populating list of elements from JavaScript array object - if **JQVN** finds an array of elements in the model it will replicate target HTML element in the template, which is usefull for the lists, tables, etc.
+ - populating list of elements from JavaScript array object - if **JQVN** finds an array of elements in the model it will replicate target HTML element in the template, which is useful for the lists, tables, etc.
  - populating any HTML input field in the form.
  
  You can find examples on the following pages:
@@ -152,3 +175,4 @@ If you want to keep it simple, **JQVN** is a view engine for you.
  - [Minified 1.2KB](src/jquery.view-engine.min.js.gz) version.
 
  Once you take one of these files just include it into your HTML page. You would also need to include [JQuery library](https://jquery.com/) in your page.
+
