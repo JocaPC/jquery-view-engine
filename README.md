@@ -20,7 +20,7 @@ First, you need a plain HTML that represents a template:
 </div>
 ```
 
-You need a **minimal time** to learn how to use **JQVN** template language because it is plain/well-known HTML. There are no placeholders such as `&#123;&#123; Name &#125;&#125;` or `<% Name %>`, and no restriction in HTML such as forbidden attributes.
+You need a **minimal time** to learn how to use **JQVN** template language because it is plain/well-known HTML. There are no placeholders such as &#123;&#123; Name &#125;&#125; or `<% Name %>`, and no restriction in HTML such as forbidden attributes.
 If you have HTML/CSS specialist who create HTML code/prototype - you can directly use their code as a template without rewriting. Also, HTML/CSS designers completely unfamiliar with JavaScript/front-end development can directly change the template.
 
 Once you define a template, you need a JavaScript object that will be used to populate it:
