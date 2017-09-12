@@ -74,7 +74,7 @@ Also, why would we need custom attributes like for to tell the view engine that 
 Finally, do you hate when you need to populate form elements and then you set `value`, `cheched`, `selected` and other properties in each input field depending on the type. Would it be nice just to say that you want to put value “Hello” into an element with some id, and let view engine figure out how to place it?
 **JOVN** do exactly this magic. Whenever it finds some form input, it will look at the type and automatically determine should it set the `value`, `inner text`, `checked` property, etc.
 
-So, I wrote this view engine because I need a **Magic**.
+So, I wrote this view engine because I needed simplicity.
 
 The only prerequisite is [JQuery library](https://jquery.com/) that is used to bind object into HTML template.
 
