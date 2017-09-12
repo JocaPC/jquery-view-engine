@@ -30,7 +30,7 @@ If you have HTML/CSS specialist who create HTML code/prototype - you can directl
 
 Once you define a template, you need a JavaScript object that will be used to populate it:
 ```javascript
-{   Title: "JOVN"
+{   Name: "JOVN"
     Desc: "The simplest view engine",
     Tags: ["View engine", "JavaScript", "SPA"]
 }
