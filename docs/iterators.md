@@ -9,7 +9,7 @@ Most of the view engines have some special directives or custom attributes that 
 ```html
 <ul>
     <li *ngFor="let hero of heroes">
-        &#123;&#123;hero&#125;&#125;
+        { {hero}}
     </li>
 </ul>
 ```
@@ -29,7 +29,7 @@ In the following Angular example, we have more complex HTML list:
 ```html
 <ul>
     <li *ngFor="let hero of heroes">
-        <span class="badge">&#123;&#123;hero.id}}</span> <span>&#123;&#123;hero.name }}</span>
+        <span class="badge">{{hero.id}}</span> <span>{{ hero.name }}</span>
     </li>
 </ul>
 ```
