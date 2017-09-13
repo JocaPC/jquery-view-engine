@@ -55,6 +55,8 @@ The result that you would like to see is:
 ```
 **JOVN** will handle various types of HTML elements, populate inner text of `P`, `DIV`, `SPAN`, and other simple elements, set the value `INPUT`, `SELECT`, and other form elements, replicate HTML elements that are bound to the arrays, etc. 
 
+See the live example on [jsFiddle](https://jsfiddle.net/jocapc/4rzv83vt/).
+
 This is the view engine that will do all binding magic for you and require minimal effort to use it.
 
 ## Why yet another view engine?
