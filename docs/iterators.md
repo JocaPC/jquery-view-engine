@@ -29,7 +29,7 @@ In the following Angular example, we have more complex HTML list:
 ```html
 <ul>
     <li *ngFor="let hero of heroes">
-        <span class="badge">{{hero.id}}</span> <span>{{ hero.name }}</span>
+        <span class="badge">{ {hero.id}}</span> <span>{ {hero.name}}</span>
     </li>
 </ul>
 ```
