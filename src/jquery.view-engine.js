@@ -1,6 +1,6 @@
 ﻿/*
 * File:        jquery.view-engine.js
-* Version:     1.0
+* Version:     1.0.1
 * Author:      Jovan Popovic 
 * 
 * Copyright 2017 Jovan Popovic, all rights reserved.
@@ -13,13 +13,17 @@
 * or FITNESS FOR A PARTICULAR PURPOSE. 
 *
 * This file contains implementation of the JQuery templating engine that load JSON
-* objects into the HTML code. It is based on Alexandre Caprais notemplate plugin: 
+* objects into the HTML code. It is based on Alexandre Caprais notemplate plugin
 * with several enchancements that are added to this plugin.
 */
 
 (function ($) {
     $.fn.view = function (obj, options) {
 
+        if (!(typeof obj == "object")) {
+            console.error("Object should be provided as a model instead of " + (typeof obj));
+            throw "Object should be provided as a model instead of " + (typeof obj);
+        }
         function loadSelect(nSelect, aoValues, name) {
             ///<summary>
             ///Load options into the select list
@@ -59,6 +63,8 @@
                 case 'datetime-local':
                 case 'number':
                 case 'range':
+                case 'submit':
+                case 'button':
                     $(element).val(value);
                 break;
 
@@ -150,10 +156,20 @@
                         $img.attr("title", obj.title);
                     }
                     break;
-
+                case 'form':
+                    {
+                        var $form = $(element);
+                        if (typeof value == "string" || typeof value == "number") {
+                            var action = $form.attr("action");
+                            if (action.indexOf("{{" + name + "}}") > 0) {
+                                $form.attr("action", action.replace("{{" + name + "}}", value));
+                            } else {
+                                $form.attr("action", action + value);
+                            }
+                        }
+                        break;
+                    }
                 case 'textarea':
-                case 'submit':
-                case 'button':
                 default:
                     try {
                         $(element).html(value.toString());
