@@ -1,6 +1,6 @@
 ﻿/*
 * File:        jquery.view-engine.js
-* Version:     1.0.1
+* Version:     1.1.0
 * Author:      Jovan Popovic 
 * 
 * Copyright 2017 Jovan Popovic, all rights reserved.
@@ -196,9 +196,17 @@
                         if (prop == null || typeof prop == "undefined")
                             continue;
                         else {
-                            //Find an element with class, id, or name that matches the property name
-                            var sSelector = ".bind-" + prop + ", #" + prop + ', [name="' + prop + '"]';
-                            bind(data[prop], jQuery(sSelector, domNode), prop);
+                            if( $(domNode).hasClass("bind-" + prop)){
+                                // Current DOM element has a class that might to be bound to the property
+                                // try to bing it. 
+                                // Supports {a:{b:{c:17}}} <span class="bind-a bind-b bind-c"
+                                bind(data[prop], domNode, prop);
+                            }
+                            else {
+                                //Find an element with class, id, or name that matches the property name
+                                var sSelector = ".bind-" + prop + ", #" + prop + ', [name="' + prop + '"]';
+                                bind(data[prop], jQuery(sSelector, domNode), prop);
+                            }
                             }
                     }
                 }

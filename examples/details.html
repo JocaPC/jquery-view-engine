@@ -13,11 +13,13 @@
                 var model = {
                         ID:17,
                         Name:"Emkay Entertainments",
-                        Address:"Nobel House, Regent Centre",
+                        Address: {
+                                Line1:"Nobel House, Regent Centre"
+                        },
                         Town:"Lothian",
                         Region:"East",
-                        Contact:"Phone",
                         Country: ["Serbia", "France"],
+                        Contact:"Phone",
                         IsFeatured:true,
                         Logo: "images/logo18.jpg"
                     }; 
@@ -38,7 +40,7 @@
             <img id="Logo" class="pull-left" alt="" src=""/>
             <br style="clear: both"/>
             <label>Address:</label>
-            <span class="bind-Address"></span>
+            <span class="bind-Address bind-Line1"></span>
             <br/>
             <label>Town:</label>
             <span class="bind-Town"></span> (<span class="bind-Region"></span>)
@@ -47,7 +49,6 @@
             <ul class="list-inline">
                 <li class="bind-Country"></li>
             </ul>
-            <br/>
             <label>Is Featured:</label>
             <span class="bind-IsFeatured"></span>
             <br/>

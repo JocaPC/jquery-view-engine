@@ -13,10 +13,6 @@
 
 		$(document).ready(function () {
 
-			// Populate initial content of Region list
-			$("#Region").view(["North","West","South","East"]);
-			$("#Industries").view(["Finance","Insurance","IT","Education"]);
-
 			var model = {
 				ID:17,
 				Name:"Emkay Entertainments",
@@ -34,6 +30,10 @@
 				Budget: 450
 			};
 		
+			
+			// Populate initial content of Region list
+			$("#Region").view(["North","West","South","East"]);
+			$("#Industries").view(["Finance","Insurance","IT","Education"]);
 			$("#companyForm").view(model);
 
 		});
