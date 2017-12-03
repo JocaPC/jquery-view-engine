@@ -26,7 +26,9 @@ In order to bind the object **model** to the form with id **#companyForm**, you 
 $("#companyForm").view(model);
 ```
 
-**[JOVN](../README.md)** has a **view()** function that can be applied on an empty HTML fragment that represents a template. This function gets the JavaScript object that shoudl be loaded into the template form. **[JOVN](../README.md)** will automatically match the properties in the JavaScript object (*Name* and *Address* in this example) to the form elements by **id** or **name** attributes.
+The only prerequisite is to include [jquery](https://jquery.com/) and [JOVN](https://github.com/JocaPC/jquery-view-engine/blob/master/src/jquery.view-engine.js) libraries in your page.
+
+**[JOVN](../README.md)** has a **view()** function that can be applied on an empty HTML fragment that represents a template. This function gets the JavaScript object that should be loaded into the template form. **[JOVN](../README.md)** will automatically match the properties in the JavaScript object (*Name* and *Address* in this example) to the form elements by **id** or **name** attributes.
 
 # Complex example
 
@@ -91,6 +93,9 @@ When we apply a view() function on a template and provide an object that should 
 
 **JOVN** will analyze each type of the input and decide how to populate it (for example it will set the value of text inputs, check the checkboxes, select options in the lists or radio buttons by name.) This way, the common logic that we use to manually populate elements depending on a type is built-in into the view engine.
 
-See live demo of the complex form with different HTML elements that is populated using **JOVN** view engine in [this example](../examples/edit.html).
+# HTML5 Elements
+
+**JOVN** supports a variety of HTML5 elements such as range, datetime, etc.
+See live demo of the complex form with different HTML5 elements that is populated using **JOVN** view engine in [this example](../examples/edit.html).
 
 [Home](../README.md)
