@@ -2,7 +2,7 @@
 
 # Populating form elements with JQuery View Engine
 
-**[JOVN](../README.md)** enables you to easily populate elements of a HTML form using data in a JavaScript objects (models). It is ideal solution for populating forms dynamiaclcly from a AJAX call.
+**[JOVN](../README.md)** is a simple view engine that enables you to easily populate elements of a HTML form using data in a JavaScript objects (models). It is ideal solution for populating HTML forms dynamicaly from an AJAX call.
 
 Let's imagine that you have an empty HTML form in your page:
 ```html
