@@ -29,11 +29,12 @@ $("#companyForm").view(model);
 **[JOVN](../README.md)** has a **view()** function that will automatically match the properties in JavaScript object (*Name* and *Address* in this example) to the form elements by **id** or **name** attributes.
 
 #Complex example
-In this example, we will load more complex form with input, textare, select list, and radio button elements. We will load two objects into this form:
- - One array that represents a list of options that will be dynamically populated, 
+
+In this example, we will load more complex form with input, textarea, select list, and radio button elements. We will load two objects into this form:
+ - One array that represents a list of options that will be dynamically populated into *#Region* select list, 
  - One object that will be loaded into elements of the form. 
 
-First, we need to put a plain HTML code in a HTML page that represents an empty form that you want to show:
+First, we need to put a plain HTML code in a HTML page that represents an empty form that we want to show:
 
 ```html
 <form id="companyForm" method="post">
@@ -59,9 +60,11 @@ This template is a pure HTML form without any custom attributes or placeholders.
 Every element in the HTML form has a `name` (or `id`) attribute. **JOVN** use this convention 
  to populate elements in the form.
 
+Now, we need JavaScript objects that will be populated into the SELECT list and FORM:
+
 ```javascript
-// Fill options in #Region SELECT list:
-var listOptions = ["North","West","South","East"]);
+// Options for #Region SELECT list:
+var regions = ["North","West","South","East"]);
 var company = {
     ID:17,
     Name:"Emkay Entertainments",
@@ -76,15 +79,15 @@ The following JavaScript code can fill the form above:
 
 ```javascript
 // Fill options in #Region SELECT list:
-$("#Region").view(listOption);
+$("#Region").view(regions);
 
 // Fill form with data in the model object:
 $("form#companyForm").view(company);
 ```
 
-Some elements such as `SELECT` might have options that are statically embeded in HTML, while other need to be dynamically populated. In the example above, Region list is initially empty, and we can use it as a template and populate it using `$("#Region").view(["North","West","South","East"])`. This code will fill the select list with the four values in the array. 
+Some elements such as `SELECT` might have options that are statically embeded in HTML, while others need to be dynamically populated. In the example above, Region list is initially empty, and we can use it as a template and populate it using `$("#Region").view(["North","West","South","East"])`. This code will fill the select list with the four values in the array. 
 
-When we apply a view() function on a template and provide an object that should be bound as an argument, **JOVN** will go through the properties of the object, find the matching elements in the form and populate them.
+When we apply a view() function on a template and provide an object that should be bound as an argument, **JOVN** will go through the properties of the object, find the matching elements in the form, and populate them.
 
 **JOVN** will analyze each type of the input and decide how to populate it (for example it will set the value of text inputs, check the checkboxes, select options in the lists or radio buttons by name.) This way, the common logic that we use to manually populate elements depending on a type is built-in into the view engine.
 
