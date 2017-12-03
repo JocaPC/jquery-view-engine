@@ -170,9 +170,11 @@
                         break;
                     }
                 case 'textarea':
+                    $(element).html(value.toString());
+                    break;
                 default:
                     try {
-                        if(properties.RAW_HTML)
+                        if(properties.rawMarkup)
                             $(element).html(value.toString());
                         else
                             $(element).text(value.toString());
@@ -260,7 +262,7 @@
         var defaults = {
             onLoading: jQuery.noop,
             onLoaded: jQuery.noop,
-            RAW_HTML: false
+            rawMarkup: false
         };
 
         properties = $.extend(defaults, options);
