@@ -2,7 +2,7 @@
 
 # Populating form elements with JQuery View Engine
 
-**[JOVN](../README.md)** is a simple view engine that enables you to easily populate elements of a HTML form using data in a JavaScript objects (models). It is ideal solution for populating HTML forms dynamicaly from an AJAX call.
+**[JOVN](../README.md)** is a simple view engine that enables you to easily populate elements of a HTML form using data in JavaScript objects (models). It is ideal solution for populating HTML forms dynamicaly from an AJAX call.
 
 Let's imagine that you have an empty HTML form in your page:
 ```html
@@ -26,9 +26,9 @@ In order to bind the object **model** to the form with id **#companyForm**, you 
 $("#companyForm").view(model);
 ```
 
-**[JOVN](../README.md)** has a **view()** function that will automatically match the properties in JavaScript object (*Name* and *Address* in this example) to the form elements by **id** or **name** attributes.
+**[JOVN](../README.md)** has a **view()** function that can be applied on an empty HTML fragment that represents a template. This function gets the JavaScript object that shoudl be loaded into the template form. **[JOVN](../README.md)** will automatically match the properties in the JavaScript object (*Name* and *Address* in this example) to the form elements by **id** or **name** attributes.
 
-#Complex example
+# Complex example
 
 In this example, we will load more complex form with input, textarea, select list, and radio button elements. We will load two objects into this form:
  - One array that represents a list of options that will be dynamically populated into *#Region* select list, 
