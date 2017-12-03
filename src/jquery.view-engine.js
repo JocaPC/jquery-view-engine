@@ -172,7 +172,10 @@
                 case 'textarea':
                 default:
                     try {
-                        $(element).html(value.toString());
+                        if(properties.RAW_HTML)
+                            $(element).html(value.toString());
+                        else
+                            $(element).text(value.toString());
                     } catch (exc) {
                         console.error(exc);
                     }
@@ -256,7 +259,8 @@
 
         var defaults = {
             onLoading: jQuery.noop,
-            onLoaded: jQuery.noop
+            onLoaded: jQuery.noop,
+            RAW_HTML: false
         };
 
         properties = $.extend(defaults, options);
