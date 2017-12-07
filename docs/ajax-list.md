@@ -70,7 +70,7 @@ $.ajax({url:"api/companies.js", dataType:"json"})
 **view()** method that is applied on a template will take the objects from the argument
 and load every object in the list. It will match HTML elemnets in the template with the
 properties by name and place the values of the JSON objects as content of HTML fields. This
-method will clone <LI> items in the template and create one <LI> item for every object in the JSON array. You can find live example [here](examples/ajax-list.html).
+method will clone <LI> items in the template and create one <LI> item for every object in the JSON array. You can find live example [here](../examples/ajax-list.html).
 
 [Home](../README.md)
 
