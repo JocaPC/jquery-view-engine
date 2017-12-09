@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Dropdown</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<script src="../src/jquery.js" type="text/javascript"></script>
+	<script src="../src/jquery.view-engine.js" type="text/javascript"></script>
+
+	<script language="javascript" type="text/javascript">
+		$(document).ready(function () {
+			
+			$.ajax({url:"api/regions.js", dataType:"json"})
+			.done(function(response){
+					$("#Region").view(response);
+			});
+		});
+   	</script>
+</head>
+<body>
+	<div class="container">
+		<a href="../docs/ajax-list">Documentation</a>
+		<form id="companyForm" action="details.html" method="get">
+			<div class="form-group">
+					<label for="Region">Choose a region</label>
+					<select name="Region" id="Region" class="form-control">
+					</select>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>
