@@ -72,6 +72,13 @@ and load every object in the list. It will match HTML elemnets in the template w
 properties by name and place the values of the JSON objects as content of HTML fields. This
 method will clone <LI> items in the template and create one <LI> item for every object in the JSON array. You can find live example [here](../examples/ajax-list.html).
 
+
+## See also
+
+ - [Populating HTML form](form)
+ - [Populating HTML lists](iterators)
+ - [Populating HTML dropdown from AJAX request](ajax-dropdown)
+
 [Home](../README.md)
 
 

@@ -93,5 +93,7 @@ If you want to keep it simple, **JOVN** is a view engine for you.
 
 ## See also
 
- - [Populating HTML form](docs/form)
- - [Populating HTML lists](docs/iterators)
+ - [Populating HTML form](form)
+ - [Populating HTML lists](iterators)
+ - [Populating HTML dropdown from AJAX request](ajax-dropdown)
+ - [Populating HTML lists from AJAX request](ajax-list)
