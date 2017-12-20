@@ -80,7 +80,7 @@ As you can see, there are not custom {{placeholders}} or directives like in the 
 
 This is a simple example, but **JOVN** can do much more such as:
  - populating list of elements from JavaScript array object - if **JOVN** finds an array of elements in the model it will replicate target HTML element in the template, which is useful for the lists, tables, etc.
- - [populating any HTML input field in the form](docs/form).
+ - [populating any HTML input field in the form](form).
  
  You can find examples on the following pages:
  - Create [list](examples/list.html) of company records using a simple `UL` list.

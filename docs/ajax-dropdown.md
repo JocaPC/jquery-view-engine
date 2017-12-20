@@ -58,7 +58,7 @@ DOM that will be generated looks like:
     <option value="East">East</option>
 </select>
 ```
-**[JOVN](../README.md)** will use strings from that array to populate value and text of the generated <OPTION> nodes. You can find live example [here](../examples/ajax-list.html).
+**[JOVN](../README.md)** will use strings from that array to populate value and text of the generated <OPTION> nodes. You can find live example [here](examples/ajax-list.html).
 
 # Complex example
 In the previous, basic example, we have used simple string array to populate dropdown. This structure loads the same values both as options that are shown to user, and the values that will be sent to server.

@@ -48,8 +48,8 @@ Class `bind-heroes` would be used to bind `heroes` array to `li` element. Within
 As you can notice, there is no custom syntax or directives. If the elements are properly matched with the array elements, **JOVN** will automatically clone HTML element for each array element.
 
 You can find few additional examples here:
- - Binding array of companies to a [list](../examples/list.html),
- - Binding array of companies to a [table](../examples/table.html).
+ - Binding array of companies to a [list](examples/list.html),
+ - Binding array of companies to a [table](examples/table.html).
 
 
 ## See also
