@@ -1,8 +1,8 @@
-[Home](../README.md)
+[Home](index)
 
 # Populating lists with JQuery View Engine
 
-**[JOVN](../README.md)** is a view engine that enables you to easily load JavaScript objects into pure HTML templates. One of the key differences between **[JOVN](../README.md)** and other view engines is the technique that binds arrays to the HTML elements.
+**[JOVN](https://github.com/JocaPC/jquery-view-engine)** is a view engine that enables you to easily load JavaScript objects into pure HTML templates. One of the key differences between **[JOVN](https://github.com/JocaPC/jquery-view-engine)** and other view engines is the technique that binds arrays to the HTML elements.
 
 Most of the view engines have some special directives or custom attributes that you need to put into the template to instruct view engine to clone a template element for each object in an array. As an example, Angular has `*ngFor` attribute that you need to put into the HTML element that should be repeated, and the value of this attribute is some "expression" that iterates trough the array of objects:
 
@@ -58,6 +58,6 @@ You can find few additional examples here:
  - [Populating HTML dropdown from AJAX request](ajax-dropdown)
  - [Populating HTML lists from AJAX request](ajax-list)
 
-[Home](../README.md)
+[Home](index)
 
 

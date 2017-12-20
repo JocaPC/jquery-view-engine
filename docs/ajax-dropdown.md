@@ -1,11 +1,11 @@
-[Home](../README.md)
+[Home](index)
 # Populating dropdowns from the AJAX calls
 
 Here is a solution for one common problem. Imagine that you have a dropdown lis tin a form and that you need to populate the values in the list from some remote REST API.
-**[JOVN](../README.md)** is a view engine that simplifies loading of data retrieved using 
+**[JOVN](https://github.com/JocaPC/jquery-view-engine)** is a view engine that simplifies loading of data retrieved using 
 AJAX requests into dropdowns pages.
 
-Imagine that you have an API on *api/regions.js* URL that returns all regions that you need to put in some dropdown as JSON response. With **[JOVN](../README.md)** this is a simple piece of code:
+Imagine that you have an API on *api/regions.js* URL that returns all regions that you need to put in some dropdown as JSON response. With **[JOVN](https://github.com/JocaPC/jquery-view-engine)** this is a simple piece of code:
 
 ```javascript
 $.ajax({url:"api/region.js"})
@@ -14,7 +14,7 @@ $.ajax({url:"api/region.js"})
     });
 ```
 
-Thsi is a standard code that loads data from remote API with AJAX call. the only specific thing is a line `$("#Region").view(response);` that loads the response into dropdown list with id `Region`. With **[JOVN](../README.md)** you just need one line of code to load JSON data from the response into an element in HTML.
+Thsi is a standard code that loads data from remote API with AJAX call. the only specific thing is a line `$("#Region").view(response);` that loads the response into dropdown list with id `Region`. With **[JOVN](https://github.com/JocaPC/jquery-view-engine)** you just need one line of code to load JSON data from the response into an element in HTML.
 
 # How it works?
 
@@ -58,12 +58,12 @@ DOM that will be generated looks like:
     <option value="East">East</option>
 </select>
 ```
-**[JOVN](../README.md)** will use strings from that array to populate value and text of the generated <OPTION> nodes. You can find live example [here](examples/ajax-list.html).
+**[JOVN](https://github.com/JocaPC/jquery-view-engine)** will use strings from that array to populate value and text of the generated <OPTION> nodes. You can find live example [here](examples/ajax-list.html).
 
 # Complex example
 In the previous, basic example, we have used simple string array to populate dropdown. This structure loads the same values both as options that are shown to user, and the values that will be sent to server.
 
-However, in many cases you will to have different key/value pairs in the list and you might need to have one option pre-selected. **[JOVN](../README.md)** also supports this use case.
+However, in many cases you will to have different key/value pairs in the list and you might need to have one option pre-selected. **[JOVN](https://github.com/JocaPC/jquery-view-engine)** also supports this use case.
 
 Your API needs to return the array of objects with the following properties:
  - `text` the value that will be shown to the user.
@@ -95,6 +95,6 @@ Once you load this object into an empty list using `$("#Region").view(response);
  - [Populating HTML lists](iterators)
  - [Populating HTML lists from AJAX request](ajax-list)
 
-[Home](../README.md)
+[Home](index)
 
 

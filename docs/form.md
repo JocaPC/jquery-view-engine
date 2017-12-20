@@ -1,8 +1,8 @@
-[Home](../README.md)
+[Home](index)
 
 # Populating form elements with JQuery View Engine
 
-**[JOVN](../README.md)** is a simple view engine that enables you to easily populate elements of a HTML form using data in JavaScript objects (models). It is ideal solution for populating HTML forms dynamicaly from an AJAX call.
+**[JOVN](https://github.com/JocaPC/jquery-view-engine)** is a simple view engine that enables you to easily populate elements of a HTML form using data in JavaScript objects (models). It is ideal solution for populating HTML forms dynamicaly from an AJAX call.
 
 Let's imagine that you have an empty HTML form in your page:
 ```html
@@ -96,6 +96,6 @@ When we apply a view() function on a template and provide an object that should 
 # HTML5 Elements
 
 **JOVN** supports a variety of HTML5 elements such as range, datetime, etc.
-See live demo of the complex form with different HTML5 elements that is populated using **JOVN** view engine in [this example](../examples/edit.html).
+See live demo of the complex form with different HTML5 elements that is populated using **JOVN** view engine in [this example](examples/edit.html).
 
-[Home](../README.md)
+[Home](index)

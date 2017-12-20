@@ -1,12 +1,12 @@
-[Home](../README.md)
+[Home](index)
 # Populating lists from the AJAX calls
 
 Did you ever need to fetch JSON data from some REST API and show the data into a web page?
-**[JOVN](../README.md)** is a view engine that simplifies loading of data retrieved using 
+**[JOVN](https://github.com/JocaPC/jquery-view-engine)** is a view engine that simplifies loading of data retrieved using 
 AJAX requests into HTML pages.
 
 Imagine that you have an API on *api/companies.js* URL that returns JSON response and that
-you need to show the returned JSON array into a list on the HTML page. With **[JOVN](../README.md)** this is a simple piece of code:
+you need to show the returned JSON array into a list on the HTML page. With **[JOVN](https://github.com/JocaPC/jquery-view-engine)** this is a simple piece of code:
 
 ```javascript
 $.ajax({url:"api/companies.js", dataType:"json"})
@@ -15,7 +15,7 @@ $.ajax({url:"api/companies.js", dataType:"json"})
     });
 ```
 
-You don't need to dynamically generate DOM elements or install some frameworks such as Angular or React, and create complex templates. With **[JOVN](../README.md)** you just need one line of code to load JSON data from the response into an element in HTML.
+You don't need to dynamically generate DOM elements or install some frameworks such as Angular or React, and create complex templates. With **[JOVN](https://github.com/JocaPC/jquery-view-engine)** you just need one line of code to load JSON data from the response into an element in HTML.
 
 # How it works?
 
@@ -70,7 +70,7 @@ $.ajax({url:"api/companies.js", dataType:"json"})
 **view()** method that is applied on a template will take the objects from the argument
 and load every object in the list. It will match HTML elemnets in the template with the
 properties by name and place the values of the JSON objects as content of HTML fields. This
-method will clone <LI> items in the template and create one <LI> item for every object in the JSON array. You can find live example [here](../examples/ajax-list.html).
+method will clone <LI> items in the template and create one <LI> item for every object in the JSON array. You can find live example [here](examples/ajax-list.html).
 
 
 ## See also
@@ -79,6 +79,6 @@ method will clone <LI> items in the template and create one <LI> item for every 
  - [Populating HTML lists](iterators)
  - [Populating HTML dropdown from AJAX request](ajax-dropdown)
 
-[Home](../README.md)
+[Home](index)
 
 
