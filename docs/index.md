@@ -83,8 +83,8 @@ The only prerequisite is [JQuery library](https://jquery.com/) that is used to b
 ## How to obtain this library?
 
 **JOVN** is a single JavaScript file that you can download from the GitHub project:
- - Full [source code](https://github.com/JocaPC/jquery-view-engine/src/jquery.view-engine.js).
- - [Minified 1.2KB](https://github.com/JocaPC/jquery-view-engine/src/jquery.view-engine.min.js.gz) version.
+ - Full [source code]https://github.com/JocaPC/jquery-view-engine/blob/master/src/jquery.view-engine.js).
+ - [Minified 1.2KB](https://github.com/JocaPC/jquery-view-engine/blob/master/src/jquery.view-engine.min.js.gz) version.
 
  Once you take one of these files just include it into your HTML page. You would also need to include [JQuery library](https://jquery.com/) in your page.
 
