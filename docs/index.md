@@ -1,15 +1,19 @@
-# JOVN - JQuery Orthodox View eNgine
+# JOVN - JQuery Ordinary View eNgine
 
+Do you need just a simple, ordinary view engine that will bind JSON data to the HTML view? 
 **JOVN** is probably the simplest possible JavaScript View Engine that you can find, and I hope that next-gen view engines will follow this usage pattern. **JOVN** has the following characteristics:
 
--   **Easy to learn** – There are not custom syntax, placeholders, rules, or constraints. If you know HTML, then you probably already know how to use this view engine.
+-   **Easy to learn** – There are no custom syntax, placeholders, rules, or constraints. If you know HTML, then you probably already know how to use this view engine.
+-   **Unobtrusive** - you don't need to mix pure HTML code with some custom directives. You can bind data to view using ordinary classes, names, and id attributes. The goal is to have full separation of pute UI code from actions.
 -   **Smart** - has built-in logic that automatically recognizes template elements by type and figure-out how to populate values into the elements. It knows when to set inner text, value, select the option, or repeat the template without some explicit **for** directive.
 -   **Cross-browser** - it is based on JQuery library, so it will work on any browser that is supported by JQuery.
 -   **Small** - 1.2KB minified.
 
 There are no frameworks, or custom templating syntax. Just write the standard/plan HTML code that you want to show in the browser, take your JavaScript object that contains data and bind them.
 
-**JOVN** is something that I see as the right way (or **Orthodox** - from Greek *ὀρθοδοξία*, orthodoxia – "right opinion") to design client-side view engine from the **front-end developer perspective**. I believe that a view engine needs to be simple and easy to learn because it is not an *equation solver*, it should handle all tedious rules for binding that we constantly use in the scripts, and it should make our life easier.
+> This might be perfect choice if you are using some templates such as [bootstrap](https://getbootstrap.com). You can take original templates from bootstrap examples, place them in your page and just bind data to them without any modification in the original template code.
+
+**JOVN** is something that I see as the right way to design client-side view engine from the **front-end developer perspective**. I believe that a view engine needs to be simple and easy to learn because it is not an *equation solver*, it should handle all tedious rules for binding that we constantly use in the scripts, and it should make our life easier.
 
 First, you need a plain HTML that represents a template:
 ```html

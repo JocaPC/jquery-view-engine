@@ -1,6 +1,6 @@
 ﻿/*
 * File:        jquery.view-engine.js
-* Version:     1.1.0
+* Version:     1.1.1
 * Author:      Jovan Popovic 
 * 
 * Copyright 2017 Jovan Popovic, all rights reserved.
