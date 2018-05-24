@@ -9,11 +9,11 @@ Do you need just a simple, ordinary view engine that will bind JSON data to the 
 -   **Cross-browser** - it is based on JQuery library, so it will work on any browser that is supported by JQuery.
 -   **Small** - 1.2KB minified.
 
-There are no frameworks, or custom templating syntax. Just write the standard/plan HTML code that you want to show in the browser, take your JavaScript object that contains data and bind them.
+There are no frameworks, or custom templating syntax. Just write the standard/plan HTML code that you want to show in the browser, take your JavaScript object that contains the data, and just bind them toghether.
 
-> This might be perfect choice if you are using some templates such as [bootstrap](https://getbootstrap.com). You can take original templates from bootstrap examples, place them in your page and just bind data to them without any modification in the original template code.
+> This might be a perfect choice if you are using some templates such as [bootstrap](https://getbootstrap.com). You can take the original templates from the bootstrap examples, place them into your page and just bind the data to the vews without any modification in the original template code.
 
-**JOVN** is something that I see as the right way to design client-side view engine from the **front-end developer perspective**. I believe that a view engine needs to be simple and easy to learn because it is not an *equation solver*, it should handle all tedious rules for binding that we constantly use in the scripts, and it should make our life easier.
+**JOVN** is something that I see as the right way to design client-side view engine from the **front-end developer perspective**. I believe that a view engine needs to be simple and easy to learn, it should handle all tedious rules for binding that we constantly use in the scripts, should not force us to mess wti the HTML template code, and it should make our life easier.
 
 First, you need a plain HTML that represents a template:
 ```html
@@ -37,7 +37,7 @@ Once you define a template, you need a JavaScript object that will be used to po
     Tags: ["View engine", "JavaScript", "SPA"]
 }
 ```
-This can be local JavaScript variable or object fetched from REST API via Ajax call.
+This can be local JavaScript variable or an object fetched from a REST API via Ajax call.
 
 The result that you would like to see is:
 ```html
@@ -57,6 +57,9 @@ The result that you would like to see is:
 ```html
  $("div#template").view(data);
 ```
+
+Just convert your template into a view and provide model to the view.
+
 **JOVN** will handle various types of HTML elements, populate inner text of `P`, `DIV`, `SPAN`, and other simple elements, set the value `INPUT`, `SELECT`, and other form elements, replicate HTML elements that are bound to the arrays, etc. 
 
 See the live example on [jsFiddle](https://jsfiddle.net/jocapc/4rzv83vt/).
@@ -87,7 +90,7 @@ The only prerequisite is [JQuery library](https://jquery.com/) that is used to b
 ## How to obtain this library?
 
 **JOVN** is a single JavaScript file that you can download from the GitHub project:
- - Full [source code]https://github.com/JocaPC/jquery-view-engine/blob/master/src/jquery.view-engine.js).
+ - Full [source code](https://github.com/JocaPC/jquery-view-engine/blob/master/src/jquery.view-engine.js).
  - [Minified 1.2KB](https://github.com/JocaPC/jquery-view-engine/blob/master/src/jquery.view-engine.min.js.gz) version.
 
  Once you take one of these files just include it into your HTML page. You would also need to include [JQuery library](https://jquery.com/) in your page.
