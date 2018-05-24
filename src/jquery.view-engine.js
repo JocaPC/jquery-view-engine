@@ -31,10 +31,12 @@
             ///<param name="nSelect" type="select">Select list</param>
             ///<param name="aoValues" type="Array{value,text,selected}">Array of object containin the options</param>
             ///<param name="name" type="String">Name of the select list</param>
+            var key = $(nSelect).attr("data-key") || name || nSelect.name || nSelect.id;
+            var text = $(nSelect).attr("data-text") || "text";
             for (i = 0; i < aoValues.length; i++) {
                 $("<option/>")
-                    .attr("value", aoValues[i].value || aoValues[i])
-                    .text(aoValues[i].text || aoValues[i])
+                    .attr("value", aoValues[i][key] || aoValues[i].value || aoValues[i])
+                    .text(aoValues[i][text] || aoValues[i])
                     .attr("selected", aoValues[i].selected)  
                     .appendTo($(nSelect));
             }

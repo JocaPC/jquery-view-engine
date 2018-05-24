@@ -112,30 +112,31 @@
 			var ids = ["#fh", "#ft","#fn", "#fr", "#fe", "#fu", "#fs"];
 			for (var i in ids) {
 				// Arrange
-				var id = ids[i];
+				var id = ids[i]; // id of the form that will be populated.
+				var $form = $(id); // the form that will be populated.
 
 				// Act
-				$(id).view(model);
+				$form.view(model);
 
 				// Assert
-				var $f = $(id);
-				assert.equal( $('[name="i1"]', $f).val(), model.i1, "Populated text by name in " + id);
-				assert.equal( $("#i2", $f).val(), model.i2, "Populated text by id in " + id );
-				assert.equal( $('.bind-i3', $f).val(), model.i3, "Populated text by class name in " + id);
+				assert.equal( $('[name="i1"]', $form).val(), model.i1, "Populated text by name in " + id);
+				assert.equal( $("#i2", $form).val(), model.i2, "Populated text by id in " + id );
+				assert.equal( $('.bind-i3', $form).val(), model.i3, "Populated text by class name in " + id);
 			}
 		  });
 
 		QUnit.test( "TEXT", function( assert ) {
 			// Arrange
 			var id = "#frandom";
+			var $form = $(id);
+
 			// Act
-			$(id).view(r);
+			$form.view(r);
 
 			// Assert
-			var $f = $(id);
-			assert.equal( $('[name="t1"]', $f).val(), r.t1, "Populated text by name in " + id);
-			assert.equal( $("#t2", $f).val(), r.t2, "Populated text by id in " + id );
-			assert.equal( $('.bind-t3', $f).val(), r.t3, "Populated text by class name in " + id);
+			assert.equal( $('[name="t1"]', $form).val(), r.t1, "Populated text by name in " + id);
+			assert.equal( $("#t2", $form).val(), r.t2, "Populated text by id in " + id );
+			assert.equal( $('.bind-t3', $form).val(), r.t3, "Populated text by class name in " + id);
 		});
 
 		QUnit.test( "CHECKBOX", function( assert ) {
