@@ -1,4 +1,4 @@
-# Using JQuery Orthodox View eNgine
+# Using JQuery Ordinary View eNgine
 
 To use **JOVN** you would need:
  - HTML code that will be used as template. You can use standard HTML, HTML5 elements, with your own CSS code, Twitter Bootstrap or similar.
