@@ -1,4 +1,4 @@
-# JOVN - JQuery Ordinary View eNgine
+# JOVN - JQuery Ortodox View eNgine
 
 Do you need just a simple, ordinary view engine that will bind JSON data to the HTML view? 
 **JOVN** is probably the simplest possible JavaScript View Engine that you can find, and I hope that next-gen view engines will follow this usage pattern. **JOVN** has the following characteristics:
