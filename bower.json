@@ -1,0 +1,17 @@
+{
+  "name": "jovn",
+  "authors": [
+    "Jovan Popovic <jocapc@gmail.com>"
+  ],
+  "homepage": "https://github.com/JocaPC/jquery-view-engine",
+  "description": "JQuery view engine that binds plain JavaScript objects into plain HTML templates",
+  "main": "src/jquery.view-engine.js",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": ">=3.0.0"
+  }
+  "ignore": [
+    "*",
+    "!src"
+  ]
+}
