@@ -9,7 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "jquery": ">=3.0.0"
-  }
+  },
   "ignore": [
     "*",
     "!src"
