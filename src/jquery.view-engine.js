@@ -1,6 +1,6 @@
 ﻿/*
 * File:        jquery.view-engine.js
-* Version:     1.1.1
+* Version:     1.1.2
 * Author:      Jovan Popovic 
 * 
 * Copyright 2017 Jovan Popovic, all rights reserved.
@@ -176,10 +176,15 @@
                     break;
                 default:
                     try {
+                        var attr = $(element).attr("data-target-attr");
+                        if(typeof attr !== typeof undefined && attr !== false)
+                            $(element).attr(attr, value.value || value); 
+                        else {
                         if(properties.rawMarkup)
                             $(element).html(value.toString());
                         else
                             $(element).text(value.toString());
+                        }
                     } catch (exc) {
                         console.error(exc);
                     }
